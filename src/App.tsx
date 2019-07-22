@@ -2,13 +2,16 @@ import React from "react";
 import "./App.css";
 import CivilizationsList from "./views/CivilizationsList";
 import CreateCivilization from "./components/createCivilization";
+import GeneralContext from "./contextApi/themeProvider";
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <CivilizationsList />
-      <CreateCivilization />
-    </div>
+    <GeneralContext>
+      <div className="App">
+        <CivilizationsList />
+        <CreateCivilization />
+      </div>
+    </GeneralContext>
   );
 };
 
