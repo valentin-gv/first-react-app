@@ -11,6 +11,10 @@ class CivilizationsService {
   getCivilizations() {
     return this.axios.get<Promise<Civilization[]>>(CIVILIZATION.GET_CIVILIZATIONS);
   }
+
+  createCivilization(data: any) {
+    return this.axios.post<Promise<any>>(CIVILIZATION.POST_CIVILIZATION, data);
+  }
 }
 
 const instance = new CivilizationsService();

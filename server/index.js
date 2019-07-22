@@ -19,6 +19,7 @@ usersRouter.route('/civilizations')
         .json(data.civilizations);
     })
     .post((req, res) => {
+        console.log(req.body);
         res
         .status(201)
         .json(req.body);
