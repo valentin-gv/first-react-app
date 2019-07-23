@@ -1,42 +1,37 @@
 import React, { Component } from "react";
 import CivilizationForm from "./civilizationForm";
-import CivilizationsService, {
-  Civilization
-} from "../services/civilization.services";
+import CivilizationsService from "../services/civilization.services";
+import { GlobalContext } from "../contextApi/globalProvider";
 
-interface Props {
-}
+interface Props {}
 
 interface State {
   name: string;
 }
 
 class CreateCivilization extends Component<Props, State> {
+  static contextType = GlobalContext;
+  context!: React.ContextType<typeof GlobalContext>;
+
   constructor(props: any) {
     super(props);
-    this.state = {
-      name: "default name"
-    };
+    // this.state = {
+    //   name: "default name"
+    // };
 
-    this.parentCallback = this.parentCallback.bind(this);
     this.submitForm = this.submitForm.bind(this);
   }
 
-  parentCallback(state: any) {
-    this.setState({name: state.name})
-  }
-
   submitForm() {
-    CivilizationsService.createCivilization(this.state).then(x => console.log(x));
+    CivilizationsService.createCivilization(this.context.data).then(x =>
+      console.log(x)
+    );
   }
 
   render() {
     return (
       <>
-        <CivilizationForm
-          name={this.state.name}
-          sendToParent={this.parentCallback}
-        />
+        <CivilizationForm name={this.context.data.name} />
         <button onClick={this.submitForm}>Submit</button>
       </>
     );

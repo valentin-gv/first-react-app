@@ -1,8 +1,9 @@
 import React, { Component, ChangeEvent } from "react";
 import SimpleButton from "./simpleButton";
+import { GlobalContext } from "../contextApi/globalProvider";
 
 interface Props {
-  sendToParent: (state: State) => void;
+  //   sendToParent: (state: State) => void;
   name: string;
 }
 
@@ -11,6 +12,9 @@ interface State {
 }
 
 class CivilizationForm extends Component<Props, State> {
+  static contextType = GlobalContext;
+  context!: React.ContextType<typeof GlobalContext>;
+
   constructor(props: any) {
     super(props);
     this.state = {
@@ -25,8 +29,12 @@ class CivilizationForm extends Component<Props, State> {
     this.setState({ name: event.target.value });
   }
 
+  changeContextState = () => {
+    this.context.setData({ name: this.state.name }, () => {});
+  };
+  
   sendState() {
-    this.props.sendToParent(this.state);
+    this.changeContextState();
   }
 
   render() {
@@ -46,7 +54,7 @@ class CivilizationForm extends Component<Props, State> {
         </div>
 
         <div>
-        <SimpleButton clicked={this.sendState} />
+          <SimpleButton clicked={this.sendState} />
         </div>
       </div>
     );

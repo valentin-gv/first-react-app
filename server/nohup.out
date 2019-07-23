@@ -1,0 +1,56 @@
+
+> api@1.0.0 start /home/valentingavela/Documents/practice/my-react-app/server
+> nodemon --inspect index.js
+
+[33m[nodemon] 1.19.1[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `node --inspect index.js`[39m
+Debugger listening on ws://127.0.0.1:9229/cb42676a-eb76-4046-bcd6-acc3613d00cf
+For help, see: https://nodejs.org/en/docs/inspector
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+Emitted 'error' event at:
+    at lazyFs.read (internal/fs/streams.js:165:12)
+    at FSReqWrap.wrapper [as oncomplete] (fs.js:467:17)
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! api@1.0.0 start: `nodemon --inspect index.js`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the api@1.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/valentingavela/.npm/_logs/2019-07-23T13_14_19_613Z-debug.log
+Running on port 4000
+
+> api@1.0.0 start /home/valentingavela/Documents/practice/my-react-app/server
+> nodemon --inspect index.js
+
+[33m[nodemon] 1.19.1[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `node --inspect index.js`[39m
+Starting inspector on 127.0.0.1:9229 failed: address already in use
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+Emitted 'error' event at:
+    at lazyFs.read (internal/fs/streams.js:165:12)
+    at FSReqWrap.wrapper [as oncomplete] (fs.js:467:17)
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! api@1.0.0 start: `nodemon --inspect index.js`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the api@1.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/valentingavela/.npm/_logs/2019-07-23T13_14_33_146Z-debug.log

@@ -1,20 +1,15 @@
 import React, { Component } from "react";
+import { GlobalContext } from "../contextApi/globalProvider";
 
 interface Props {
-    clicked: () => void;
+  clicked: () => void;
 }
 
-interface State {}
+class SimpleButton extends Component<Props, {}> {  
 
-class SimpleButton extends Component<Props, State> {
-  constructor(props: any) {
-    super(props);
-  }
 
   render() {
-      return ( 
-          <button onClick={this.props.clicked}>Child Button</button>
-      )
+    return <button onClick={this.props.clicked}>Send to parent</button>;
   }
 }
 
