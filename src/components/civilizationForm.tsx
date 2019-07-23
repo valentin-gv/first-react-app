@@ -25,19 +25,31 @@ class CivilizationForm extends Component<Props, State> {
     this.sendState = this.sendState.bind(this);
   }
 
+  contextPrevValue = '';
+
   handleChange(event: ChangeEvent<any>) {
     this.setState({ name: event.target.value });
   }
 
   changeContextState = () => {
-    this.context.setData({ name: this.state.name }, () => {});
+    this.context.setData({ name: this.state.name }, () => {
+        console.log('termine de rendear')
+    });
   };
   
   sendState() {
     this.changeContextState();
   }
 
+  shouldComponentUpdate(_prevProps: any, prevState: any) {
+      const hasChanged = prevState.name !== this.state.name || this.contextPrevValue !== this.context.data.name;
+      this.contextPrevValue = this.context.data.name;
+
+      return hasChanged;
+  }
+
   render() {
+    console.count("FORM");
     const { name } = this.state;
     return (
       <div>

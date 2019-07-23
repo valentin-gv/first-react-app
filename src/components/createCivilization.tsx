@@ -29,6 +29,7 @@ class CreateCivilization extends Component<Props, State> {
   }
 
   render() {
+    console.count("PARENT");
     return (
       <>
         <CivilizationForm name={this.context.data.name} />

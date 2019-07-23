@@ -1,12 +1,13 @@
-import React, { Component } from "react";
+import React, { Component, PureComponent } from "react";
 
 export const GlobalContext = React.createContext<ProviderState>(
   {} as ProviderState
 );
 
 class GlobalComponent extends Component<ProviderProps, ProviderState> {
-  setData = (payload: any) => {
-    this.setState({ data: payload });
+  setData = (payload: any, cb: any) => {
+    console.log("setting Data...")
+    this.setState({ data: payload }, cb);
   };
 
   state = {
@@ -15,6 +16,10 @@ class GlobalComponent extends Component<ProviderProps, ProviderState> {
     },
     setData: this.setData
   };
+
+  shouldComponentUpdate(_prevProps: any, prevState: any) {
+    return prevState.data.name !== this.state.data.name;
+  }
 
   render() {
     return (
